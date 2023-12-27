@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'mianStampAddressButton.dart';
+import 'MainStampAddressModel.dart';
 
 
 class MainStamp extends StatelessWidget {
@@ -38,22 +38,28 @@ class MainStamp extends StatelessWidget {
                         child: Row(
                           children: [
                             Container(
-                              width: 60,
+                              width: 64,
                               alignment: Alignment.center,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextButton(
                                       child: Text('출발',style: TextStyle(color: Colors.deepOrange),),
-                                      onPressed: (){
-                                        mainStampaddressButton(context);
-                                      },
+                                    onPressed: () {
+                                      showModalBottomSheet(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        builder: (BuildContext context) {
+                                          return MainStampAddressModel();
+                                        },
+                                      );
+                                    },
                                   ),
                                 ],
                               ),
                             ),
                             Container(
-                              width: 290,
+                              width: 286,
                               alignment: Alignment.center,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +91,7 @@ class MainStamp extends StatelessWidget {
                         child: Row(
                           children: [
                             Container(
-                              width: 60,
+                              width: 64,
                               alignment: Alignment.center,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
@@ -100,7 +106,7 @@ class MainStamp extends StatelessWidget {
                               ),
                             ),
                             Container(
-                              width: 290,
+                              width: 286,
                               alignment: Alignment.center,
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

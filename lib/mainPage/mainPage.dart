@@ -55,9 +55,7 @@ class _MainPage extends State<MainPage> {
                                             isScrollControlled: true,
                                             // 모달의 기본 높이 제거
                                             builder: (BuildContext context) {
-                                              return StatefulBuilder(builder:
-                                                  (BuildContext context,
-                                                  StateSetter bottomState) {
+                                              return StatefulBuilder(builder: (BuildContext context, StateSetter bottomState) {
                                                 return ListenableBuilder(
                                                     listenable: _visible,
                                                     builder:
@@ -1333,7 +1331,8 @@ class SecondModal {
                                       // 데이터 같이 넘길 수 있음
                                       visibleModel.setVisible(true);
                                       Navigator.of(context).pop();
-                                    }),
+                                    }
+                                ),
                               ),
                               Container(
                                   padding: EdgeInsets.fromLTRB(12, 2, 12, 0),
