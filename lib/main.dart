@@ -5,6 +5,12 @@ import 'package:provider/provider.dart';
 import 'code_lab_ex/FavoritesPage.dart';
 import 'code_lab_ex/GeneratorPage.dart';
 import 'drawer_left_menu/left_menu_drawer.dart';
+import 'mainPage/Calender.dart';
+import 'mainPage/DeliveryListPage.dart';
+import 'mainPage/DeliveryWorkerPage.dart';
+import 'mainPage/FormScreen.dart';
+import 'mainPage/FourScreen.dart';
+import 'mainPage/Lgoin.dart';
 import 'mainPage/mainPage.dart';
 import 'mainPage/mainStamp.dart';
 
@@ -90,6 +96,22 @@ class _MyHomePageState extends State<MyHomePage> {
       case 3:
         page = MainStamp();
         break;
+      case 4:
+        page = FourScreen();
+        break;
+      case 5:
+        page = Lgoin();
+        break;
+      case 6:
+        page = FormScreen();
+        break;
+      case 7:
+        page = DeliveryWorkerPage();
+        break;
+      case 8:
+        page = DeliveryListPage();
+        break;
+
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -154,6 +176,26 @@ class _MyHomePageState extends State<MyHomePage> {
                         icon: Icon(Icons.favorite),
                         label: 'mainstamp',
                       ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: 'NavigatorEx',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: 'Login',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: 'FormScreen',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: '모달연습',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: '운송장List연습',
+                      ),
                     ],
                     currentIndex: selectedIndex,
                     onTap: (value) {
@@ -193,6 +235,31 @@ class _MyHomePageState extends State<MyHomePage> {
                         label: Text('mainstamp',
                             style: TextStyle(color: Colors.white)),
                       ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.favorite),
+                        label: Text('NavigatorEx',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.favorite),
+                        label: Text('Login',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.favorite),
+                        label: Text('FormScreen',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.favorite),
+                        label: Text('모달연습',
+                            style: TextStyle(color: Colors.white)),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.favorite),
+                        label: Text('운송장리스트',
+                            style: TextStyle(color: Colors.white)),
+                      ),
                     ],
                     selectedIndex: selectedIndex,
                     onDestinationSelected: (value) {
@@ -211,6 +278,9 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+
+
 
 
 

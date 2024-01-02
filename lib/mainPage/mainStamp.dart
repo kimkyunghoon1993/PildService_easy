@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'MainStampAddressModel.dart';
 
+class MainStamp extends StatefulWidget{
+  @override
+  State<MainStamp> createState() => _MainStamp();
 
-class MainStamp extends StatelessWidget {
+}
+
+class _MainStamp extends State<MainStamp> {
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       body: Container(
         child: Column(
@@ -65,10 +69,23 @@ class MainStamp extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   TextButton(
-                                      child: Text('출발지 설정',style: TextStyle(color: Colors.white),),
-                                      onPressed: (){
-
-                                      },
+                                    child: Text('출발지 설정', style: TextStyle(color: Colors.white),),
+                                    onPressed: () async {
+                                      // showModalBottomSheet의 반환 값으로 받아옴
+                                      var result = await showModalBottomSheet<String>(
+                                        context: context,
+                                        isScrollControlled: true,
+                                        builder: (BuildContext context) {
+                                          return MainStampAddressModel();
+                                        },
+                                      );
+                                      // result 값이 null이 아니라면 MainStamp에서 전달받은 값이 있음
+                                      if (result != null) {
+                                        print("MainStamp에서 전달받은 값: $result");
+                                      } else {
+                                        print("MainStamp에서 전달받은 값이 없음");
+                                      }
+                                    },
                                   ),
                                 ],
                               ),
@@ -155,6 +172,7 @@ class MainStamp extends StatelessWidget {
                             onPressed: () {}),
                       ),
                       Container(
+
                         width: 60,
                         height: 60,
                         decoration: BoxDecoration(
