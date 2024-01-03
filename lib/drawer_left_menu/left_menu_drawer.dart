@@ -10,7 +10,7 @@ class MenuDrawer extends StatelessWidget {
         children: [
           UserAccountsDrawerHeader(
             currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage('/image/sukuna.png'),
+              backgroundImage: AssetImage('assets/image/sukuna.png'),
             ),
             accountName: Text(''),
             accountEmail: Text('abcd123456@naver.com'),

@@ -23,7 +23,7 @@ class Lgoin extends StatelessWidget {
           Padding(padding: EdgeInsets.only(top: 50)),
           Center(
             child: Image(
-              image: AssetImage('image/pildservice.png'),
+              image: AssetImage('assets/image/pildservice.png'),
               width: 170.0,
             ),
           ),

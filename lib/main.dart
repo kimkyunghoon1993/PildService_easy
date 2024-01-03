@@ -8,9 +8,11 @@ import 'drawer_left_menu/left_menu_drawer.dart';
 import 'mainPage/Calender.dart';
 import 'mainPage/DeliveryListPage.dart';
 import 'mainPage/DeliveryWorkerPage.dart';
+import 'mainPage/First.dart';
 import 'mainPage/FormScreen.dart';
 import 'mainPage/FourScreen.dart';
 import 'mainPage/Lgoin.dart';
+import 'mainPage/LocationSettingPage.dart';
 import 'mainPage/mainPage.dart';
 import 'mainPage/mainStamp.dart';
 
@@ -103,7 +105,8 @@ class _MyHomePageState extends State<MyHomePage> {
         page = Lgoin();
         break;
       case 6:
-        page = FormScreen();
+        // page = FormScreen();
+        page = First();
         break;
       case 7:
         page = DeliveryWorkerPage();
@@ -111,7 +114,12 @@ class _MyHomePageState extends State<MyHomePage> {
       case 8:
         page = DeliveryListPage();
         break;
-
+      case 9:
+        page = LocationSettingPage();
+        break;
+      case 10:
+        page = FormScreen();
+        break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
@@ -195,6 +203,14 @@ class _MyHomePageState extends State<MyHomePage> {
                       BottomNavigationBarItem(
                         icon: Icon(Icons.favorite),
                         label: '운송장List연습',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: '연습',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.favorite),
+                        label: '연습2',
                       ),
                     ],
                     currentIndex: selectedIndex,

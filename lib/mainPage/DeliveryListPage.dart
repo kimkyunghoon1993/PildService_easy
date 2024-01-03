@@ -120,7 +120,9 @@ class _NestedTabBarState extends State<NestedTabBar>
                         children: [
                           Container(
                             width: 70,
-                            child: Image.asset('camera-create.png'),
+                            child: Image(
+                              image: AssetImage('assets/image/camera-create.png'),
+                            ),
                           ),
                           Container(
                             child: Text(
@@ -272,13 +274,13 @@ class _NestedTabBarState extends State<NestedTabBar>
                                     BorderRadius.circular(8)),
                               ),
                               child: Container(
-                                  child: Image.asset(
-                                    'imagesmode_FILL0_wght400_GRAD0_opsz24.png',
                                     width: 45.60,
                                     height: 45.60,
                                     color: Colors.grey,
-                                  )
-                              )
+                                      child: Image(
+                                      image: AssetImage('assets/image/imagesmode_FILL0_wght400_GRAD0_opsz24.png'),
+                                      ),
+                              ),
                           ),
                         ],
                       ),
@@ -417,11 +419,9 @@ class _NestedTabBarState extends State<NestedTabBar>
                                     BorderRadius.circular(8)),
                               ),
                               child: Container(
-                                  child: Image.asset(
-                                    '1841.png',
-                                    width: 76,
-                                    height: 76,
-                                  )
+                                child: Image(
+                                  image: AssetImage('assets/image/1841.png'),
+                                ),
                               )
                           ),
                         ],
@@ -561,11 +561,11 @@ class _NestedTabBarState extends State<NestedTabBar>
                                     BorderRadius.circular(8)),
                               ),
                               child: Container(
-                                  child: Image.asset(
-                                    '1840.png',
-                                    width: 45.60,
-                                    height: 45.60,
-                                  )
+                                  width: 45.60,
+                                  height: 45.60,
+                                  child: Image(
+                                    image: AssetImage('assets/image/1840.png'),
+                                  ),
                               )
                           ),
                         ],
@@ -705,12 +705,12 @@ class _NestedTabBarState extends State<NestedTabBar>
                                     BorderRadius.circular(8)),
                               ),
                               child: Container(
-                                  child: Image.asset(
-                                    'imagesmode_FILL0_wght400_GRAD0_opsz24.png',
-                                    width: 45.60,
-                                    height: 45.60,
-                                    color: Colors.grey,
-                                  )
+                                width: 45.60,
+                                height: 45.60,
+                                color: Colors.grey,
+                                child: Image(
+                                  image: AssetImage('assets/image/imagesmode_FILL0_wght400_GRAD0_opsz24.png'),
+                                ),
                               )
                           ),
                         ],

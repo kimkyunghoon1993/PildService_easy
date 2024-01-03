@@ -35,7 +35,7 @@ class _MainPage extends State<MainPage> {
                         Padding(padding: EdgeInsets.only(bottom: 15.0)),
                         Container(
                           width: 335,
-                          height: 36,
+                          height: 50,
                           color: Color.fromARGB(255, 32, 43, 55),
                           child: Container(
                             child: Column(
@@ -569,7 +569,7 @@ class _MainPage extends State<MainPage> {
                         ),
                         Container(
                           width: 335,
-                          height: 36,
+                          height: 50,
                           color: Color.fromARGB(255, 32, 43, 55),
                           child: Container(
                             child: Column(

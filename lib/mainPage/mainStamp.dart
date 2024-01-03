@@ -77,6 +77,7 @@ class _MainStamp extends State<MainStamp> {
                                         isScrollControlled: true,
                                         builder: (BuildContext context) {
                                           return MainStampAddressModel();
+                                          // return MainStampaddressIconButtonModel();
                                         },
                                       );
                                       // result 값이 null이 아니라면 MainStamp에서 전달받은 값이 있음
