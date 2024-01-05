@@ -34,9 +34,21 @@ class LocationSettingPage extends StatelessWidget {
       isScrollControlled: true, // 모달이 전체 화면을 사용하도록 설정
       isDismissible: false, // 모달 밖의 영역을 탭해도 닫히지 않도록 설정
       builder: (BuildContext context) {
-        return FormModal(
-          addressController: addressController,
-          // ... 다른 TextEditingController 인스턴스들을 전달 ...
+        return Column(
+          children: [
+            Container(
+              alignment: Alignment.centerRight,
+              child: IconButton(
+                  icon: const Icon(Icons.close),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  }),
+            ),
+            FormModal(
+              addressController: addressController,
+              // ... 다른 TextEditingController 인스턴스들을 전달 ...
+            ),
+          ],
         );
       },
     ).then((_) {

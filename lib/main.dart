@@ -5,11 +5,9 @@ import 'package:provider/provider.dart';
 import 'code_lab_ex/FavoritesPage.dart';
 import 'code_lab_ex/GeneratorPage.dart';
 import 'drawer_left_menu/left_menu_drawer.dart';
-import 'mainPage/Calender.dart';
+import 'mainPage/CuMainPageEx.dart';
 import 'mainPage/DeliveryListPage.dart';
 import 'mainPage/DeliveryWorkerPage.dart';
-import 'mainPage/First.dart';
-import 'mainPage/FormScreen.dart';
 import 'mainPage/FourScreen.dart';
 import 'mainPage/Lgoin.dart';
 import 'mainPage/LocationSettingPage.dart';
@@ -105,20 +103,16 @@ class _MyHomePageState extends State<MyHomePage> {
         page = Lgoin();
         break;
       case 6:
-        // page = FormScreen();
-        page = First();
-        break;
-      case 7:
         page = DeliveryWorkerPage();
         break;
-      case 8:
+      case 7:
         page = DeliveryListPage();
         break;
-      case 9:
+      case 8:
         page = LocationSettingPage();
         break;
-      case 10:
-        page = FormScreen();
+      case 9:
+        page = CuMainPageEx();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -194,23 +188,19 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.favorite),
-                        label: 'FormScreen',
+                        label: '배송워커앱 모달',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.favorite),
-                        label: '모달연습',
+                        label: '배송워커앱 운송장 list',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.favorite),
-                        label: '운송장List연습',
+                        label: 'Ex',
                       ),
                       BottomNavigationBarItem(
                         icon: Icon(Icons.favorite),
-                        label: '연습',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: '연습2',
+                        label: 'cu편의점택배',
                       ),
                     ],
                     currentIndex: selectedIndex,
@@ -263,17 +253,17 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.favorite),
-                        label: Text('FormScreen',
+                        label: Text('배송워커앱 모당 연습',
                             style: TextStyle(color: Colors.white)),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.favorite),
-                        label: Text('모달연습',
+                        label: Text('배송워커앱 운송장 list',
                             style: TextStyle(color: Colors.white)),
                       ),
                       NavigationRailDestination(
                         icon: Icon(Icons.favorite),
-                        label: Text('운송장리스트',
+                        label: Text('CU편의점택배',
                             style: TextStyle(color: Colors.white)),
                       ),
                     ],

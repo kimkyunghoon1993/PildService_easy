@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class MainStamp extends StatefulWidget {
+class MainStamp2 extends StatefulWidget {
   @override
-  _MainStampState createState() => _MainStampState();
+  _MainStamp2State createState() => _MainStamp2State();
 }
 
-class _MainStampState extends State<MainStamp>{
+class _MainStamp2State extends State<MainStamp2>{
   final _formKey = GlobalKey<FormState>();
   final _addressController = TextEditingController();
   final _nameController = TextEditingController();
@@ -19,7 +19,7 @@ class _MainStampState extends State<MainStamp>{
   void _trySubmitForm() { // 출발지 설정 버튼 클릭시 form 안에 있는 내용 전송 할 값
     if (_formKey.currentState?.validate() == true) {
       print(
-          'Address: ${_addressController.text},'
+              'Address: ${_addressController.text},'
               'Name: ${_nameController.text},'
               'Detailed Address ${_detailedaddressController.text},'
               'Phone Number: ${_phoneNumberController.text},'
@@ -35,11 +35,11 @@ class _MainStampState extends State<MainStamp>{
 
   void _checkFormFields() { // input null 값 확인
     bool isFormFilled =
-        _addressController.text.isNotEmpty &&
+            _addressController.text.isNotEmpty &&
             _nameController.text.isNotEmpty &&
             _detailedaddressController.text.isNotEmpty &&
             _phoneNumberController.text.isNotEmpty;
-    _visible.setButtonEnabled(isFormFilled);
+      _visible.setButtonEnabled(isFormFilled);
   }
 
   @override
@@ -178,132 +178,100 @@ class _MainStampState extends State<MainStamp>{
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
                       ),
                       Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
                       ),
                       Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
-                      ),
-                    ],
-                  ),
-                  Padding(padding: EdgeInsets.only(bottom: 5)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
-                      ),
-                    ],
-                  ),
-                  Padding(padding: EdgeInsets.only(bottom: 5)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
-                      ),
-                      Container(
-                        width: 100,
-                        height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        child: SizedBox(width: 100,height: 100,),
-                      ),
-                      // Container(
-                      //   width: 100,
-                      //   height: 100,
-                        // decoration: BoxDecoration(
-                        //     border: Border.all(color: Colors.black, width: 1)),
-                        // child: IconButton(
-                        //     icon: const Icon(Icons.local_shipping),
-                        //     onPressed: () {}),
-                        // child: Image(image: AssetImage('assets/image/homepick_icon1.png')),
-                      ClipPath(
-                        clipper: MyClipper(),
-                        child: Container(
-                          padding: EdgeInsets.only(
-                            top: 25,
-                            left: 10,
-                            right: 10,
-                            bottom: 10,
-                          ),
-                          color: Colors.grey,
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Text(
-                                '여기서 운송장 조회!',
-                                style: TextStyle(
-                                  color: Color.fromARGB(255, 32, 43, 55),
-                                  fontSize: 13,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
 
-              ],
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                    ],
+                  ),
+                  Padding(padding: EdgeInsets.only(bottom: 5)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                    ],
+                  ),
+                  Padding(padding: EdgeInsets.only(bottom: 5)),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                      Container(
+                        width: 60,
+                        height: 60,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black, width: 1)),
+                        child: IconButton(
+                            icon: const Icon(Icons.local_shipping),
+                            onPressed: () {}),
+                      ),
+                    ],
                   ),
                 ],
               ),
@@ -387,281 +355,281 @@ class _MainStampState extends State<MainStamp>{
       context: context,
       builder: (BuildContext context) {
         return StatefulBuilder(
-            builder: (BuildContext context, StateSetter stateSetter) {
-              return ListenableBuilder(
-                  listenable: _visible,
-                  builder: (BuildContext context, Widget? child) {
-                    return Container(
-                      height: MediaQuery.of(context).size.height * 0.7,
-                      color: Colors.white,
-                      child: Padding(
-                        padding: EdgeInsets.all(16.0),
-                        child: Column(
-                          children: <Widget>[
-                            Container(
-                              alignment: Alignment.centerRight,
-                              child: IconButton(
-                                  icon: const Icon(Icons.close),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  }),
-                            ),
-                            Container(
-                              alignment: Alignment.centerLeft,
-                              padding: EdgeInsets.only(bottom: 5.0),
-                              child: Text('출발지'),
-                            ),
-                            Form(
-                              key: _formKey,
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 40,
-                                    padding: EdgeInsets.only(bottom: 5.0),
-                                    child: TextFormField(
-                                      readOnly: true,
-                                      controller: _addressController,
-                                      obscureText: isObscure,
-                                      textInputAction: TextInputAction.next,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: '주소 검색',
-                                        suffixIcon: IconButton(
-                                          icon: Icon(Icons.search),
-                                          onPressed: () {
-                                            TextEditingController _controller2 = TextEditingController();
+          builder: (BuildContext context, StateSetter stateSetter) {
+            return ListenableBuilder(
+                listenable: _visible,
+              builder: (BuildContext context, Widget? child) {
+                return Container(
+                  height: MediaQuery.of(context).size.height * 0.7,
+                  color: Colors.white,
+                  child: Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: <Widget>[
+                        Container(
+                          alignment: Alignment.centerRight,
+                          child: IconButton(
+                              icon: const Icon(Icons.close),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              }),
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: EdgeInsets.only(bottom: 5.0),
+                          child: Text('출발지'),
+                        ),
+                        Form(
+                            key: _formKey,
+                            child: Column(
+                              children: [
+                                Container(
+                                  height: 40,
+                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  child: TextFormField(
+                                    readOnly: true,
+                                    controller: _addressController,
+                                    obscureText: isObscure,
+                                    textInputAction: TextInputAction.next,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: '주소 검색',
+                                      suffixIcon: IconButton(
+                                        icon: Icon(Icons.search),
+                                        onPressed: () {
+                                          TextEditingController _controller2 = TextEditingController();
 
-                                            showModalBottomSheet(
-                                              isScrollControlled: true,
-                                              enableDrag: false,
-                                              context: context,
-                                              builder: (BuildContext context) {
-                                                return Container(
-                                                  height: MediaQuery.of(context).size.height * 0.7,
-                                                  color: Colors.white,
-                                                  child: Padding(
-                                                    padding: EdgeInsets.all(16.0),
-                                                    child: Column(
-                                                      children: <Widget>[
-                                                        Container(
-                                                          padding: EdgeInsets.fromLTRB(0, 8, 2, 5),
-                                                          alignment: Alignment.topRight,
-                                                          child: IconButton(
-                                                            icon: const Icon(Icons.close),
-                                                            onPressed: (){
-                                                              Navigator.of(context).pop();
-                                                            },
-                                                          ),
+                                          showModalBottomSheet(
+                                            isScrollControlled: true,
+                                            enableDrag: false,
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return Container(
+                                                height: MediaQuery.of(context).size.height * 0.7,
+                                                color: Colors.white,
+                                                child: Padding(
+                                                  padding: EdgeInsets.all(16.0),
+                                                  child: Column(
+                                                    children: <Widget>[
+                                                      Container(
+                                                        padding: EdgeInsets.fromLTRB(0, 8, 2, 5),
+                                                        alignment: Alignment.topRight,
+                                                        child: IconButton(
+                                                          icon: const Icon(Icons.close),
+                                                          onPressed: (){
+                                                            Navigator.of(context).pop();
+                                                          },
                                                         ),
-                                                        Container(
-                                                          padding: EdgeInsets.fromLTRB(12, 2, 12, 0),
-                                                          child: TextField(
-                                                            controller: _controller2,
-                                                            decoration: InputDecoration(
-                                                              border: OutlineInputBorder(),
-                                                              labelText: '도로명,지번,건물명을 입력하세요',
-                                                              suffixIcon: IconButton(
-                                                                icon: Icon(Icons.search),
-                                                                onPressed: () {
-                                                                  setState(() {
-                                                                    _addressController.text = _controller2.text;
-                                                                  });
-                                                                  Navigator.of(context).pop();
-                                                                },
-                                                              ),
+                                                      ),
+                                                      Container(
+                                                        padding: EdgeInsets.fromLTRB(12, 2, 12, 0),
+                                                        child: TextField(
+                                                          controller: _controller2,
+                                                          decoration: InputDecoration(
+                                                            border: OutlineInputBorder(),
+                                                            labelText: '도로명,지번,건물명을 입력하세요',
+                                                            suffixIcon: IconButton(
+                                                              icon: Icon(Icons.search),
+                                                              onPressed: () {
+                                                                setState(() {
+                                                                  _addressController.text = _controller2.text;
+                                                                });
+                                                                Navigator.of(context).pop();
+                                                              },
                                                             ),
                                                           ),
                                                         ),
-                                                        Container(
-                                                          padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-                                                          width: 375,
-                                                          height: 150,
-                                                          decoration: BoxDecoration(
-                                                              border:
-                                                              Border.all(color: Colors.black45, width: 1)),
-                                                          child: Column(
-                                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                                            children: [
-                                                              Padding(padding: EdgeInsets.only(top: 8.0)),
-                                                              Text(
-                                                                '검색방법',
-                                                                style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black45),
-                                                              ),
-                                                              Padding(padding: EdgeInsets.only(top: 8.0)),
-                                                              Text('-동/읍/면/리 + 번지 (예:논현동 87-2)' , style: TextStyle(color: Colors.black45),),
-                                                              Text('-도로명 + 건물번호 입력 (예:논현로 132길 6)', style: TextStyle(color: Colors.black45),),
-                                                              Text('-건물명 (예 :강남소방서)', style: TextStyle(color: Colors.black45),),
-                                                            ],
-                                                          ),
-                                                        )
-                                                      ],
-                                                    ),
+                                                      ),
+                                                      Container(
+                                                        padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+                                                        width: 375,
+                                                        height: 150,
+                                                        decoration: BoxDecoration(
+                                                            border:
+                                                            Border.all(color: Colors.black45, width: 1)),
+                                                        child: Column(
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          children: [
+                                                            Padding(padding: EdgeInsets.only(top: 8.0)),
+                                                            Text(
+                                                              '검색방법',
+                                                              style: TextStyle(fontWeight: FontWeight.bold,color: Colors.black45),
+                                                            ),
+                                                            Padding(padding: EdgeInsets.only(top: 8.0)),
+                                                            Text('-동/읍/면/리 + 번지 (예:논현동 87-2)' , style: TextStyle(color: Colors.black45),),
+                                                            Text('-도로명 + 건물번호 입력 (예:논현로 132길 6)', style: TextStyle(color: Colors.black45),),
+                                                            Text('-건물명 (예 :강남소방서)', style: TextStyle(color: Colors.black45),),
+                                                          ],
+                                                        ),
+                                                      )
+                                                    ],
                                                   ),
-                                                );
-                                              },
-                                            );
-                                          },
-                                        ),
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
                                       ),
                                     ),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    padding: EdgeInsets.only(bottom: 5.0),
-                                    child: TextFormField(
-                                      keyboardType: TextInputType.text,
-                                      controller: _detailedaddressController,
-                                      obscureText: isObscure,
-                                      textInputAction: TextInputAction.next,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return '상세 주소를 입력해 주세요';
-                                        }
-                                        return null;
-                                      },
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        // hintText: '상세 주소를 입력해주세요', input 을 클릭 했을때 보여줄 labelText
-                                        labelText: '상세 주소',
-                                      ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  child: TextFormField(
+                                    keyboardType: TextInputType.text,
+                                    controller: _detailedaddressController,
+                                    obscureText: isObscure,
+                                    textInputAction: TextInputAction.next,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return '상세 주소를 입력해 주세요';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      // hintText: '상세 주소를 입력해주세요', input 을 클릭 했을때 보여줄 labelText
+                                      labelText: '상세 주소',
                                     ),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    padding: EdgeInsets.only(bottom: 5.0),
-                                    child: TextFormField(
-                                      textInputAction: TextInputAction.next,
-                                      keyboardType: TextInputType.text,
-                                      controller: _nameController,
-                                      obscureText: isObscure,
-                                      validator: (value) {
-                                        if (value == null || value.isEmpty) {
-                                          return '이름 을 입력해 주세요';
-                                        }
-                                        return null;
-                                      },
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: '이름',
-                                      ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  child: TextFormField(
+                                    textInputAction: TextInputAction.next,
+                                    keyboardType: TextInputType.text,
+                                    controller: _nameController,
+                                    obscureText: isObscure,
+                                    validator: (value) {
+                                      if (value == null || value.isEmpty) {
+                                        return '이름 을 입력해 주세요';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: '이름',
                                     ),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    padding: EdgeInsets.only(bottom: 5.0),
-                                    child: TextFormField(
-                                      controller: _phoneNumberController,
-                                      obscureText: isObscure,
-                                      keyboardType: TextInputType.phone,
-                                      inputFormatters: <TextInputFormatter>[
-                                        FilteringTextInputFormatter.digitsOnly
-                                      ],
-                                      validator: (value) {
-                                        if (value!.length < 12) {
-                                          return '전화번호를 정확하게 입력해 주세요';
-                                        }
-                                        return null;
-                                      },
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: '전화번호',
-                                      ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  child: TextFormField(
+                                    controller: _phoneNumberController,
+                                    obscureText: isObscure,
+                                    keyboardType: TextInputType.phone,
+                                    inputFormatters: <TextInputFormatter>[
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
+                                    validator: (value) {
+                                      if (value!.length < 12) {
+                                        return '전화번호를 정확하게 입력해 주세요';
+                                      }
+                                      return null;
+                                    },
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: '전화번호',
                                     ),
                                   ),
-                                  Container(
-                                    height: 40,
-                                    padding: EdgeInsets.only(bottom: 5.0),
-                                    child: TextFormField(
-                                      textInputAction: TextInputAction.next,
-                                      keyboardType: TextInputType.text,
-                                      controller: _messageController,
-                                      obscureText: isObscure,
-                                      decoration: InputDecoration(
-                                        border: OutlineInputBorder(),
-                                        labelText: '픽업 기사님께 메시지 전달(선택)',
-                                      ),
+                                ),
+                                Container(
+                                  height: 40,
+                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  child: TextFormField(
+                                    textInputAction: TextInputAction.next,
+                                    keyboardType: TextInputType.text,
+                                    controller: _messageController,
+                                    obscureText: isObscure,
+                                    decoration: InputDecoration(
+                                      border: OutlineInputBorder(),
+                                      labelText: '픽업 기사님께 메시지 전달(선택)',
                                     ),
                                   ),
+                                ),
 
-                                  Container(
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        ElevatedButton(
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                              MaterialStateProperty.all(Colors.white54),
-                                            ),
-                                            onPressed: () {},
-                                            child: Text(
-                                              '주소록',
-                                              style: TextStyle(color: Colors.black),
-                                            )),
-                                        ElevatedButton(
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                              MaterialStateProperty.all(Colors.white54),
-                                            ),
-                                            onPressed: () {},
-                                            child: Text(
-                                              '집',
-                                              style: TextStyle(color: Colors.black),
-                                            )),
-                                        ElevatedButton(
-                                            style: ButtonStyle(
-                                              backgroundColor:
-                                              MaterialStateProperty.all(Colors.white54),
-                                            ),
-                                            onPressed: () {},
-                                            child: Text(
-                                              '회사',
-                                              style: TextStyle(color: Colors.black),
-                                            )),
-                                      ],
-                                    ),
+                                Container(
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      ElevatedButton(
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(Colors.white54),
+                                          ),
+                                          onPressed: () {},
+                                          child: Text(
+                                            '주소록',
+                                            style: TextStyle(color: Colors.black),
+                                          )),
+                                      ElevatedButton(
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(Colors.white54),
+                                          ),
+                                          onPressed: () {},
+                                          child: Text(
+                                            '집',
+                                            style: TextStyle(color: Colors.black),
+                                          )),
+                                      ElevatedButton(
+                                          style: ButtonStyle(
+                                            backgroundColor:
+                                            MaterialStateProperty.all(Colors.white54),
+                                          ),
+                                          onPressed: () {},
+                                          child: Text(
+                                            '회사',
+                                            style: TextStyle(color: Colors.black),
+                                          )),
+                                    ],
                                   ),
-                                  SizedBox(height: 32.0),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    padding: EdgeInsets.only(bottom: 10.0),
-                                    child: Text(
-                                      '최근 배송에서 선택',
-                                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
-                                    ),
+                                ),
+                                SizedBox(height: 32.0),
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  padding: EdgeInsets.only(bottom: 10.0),
+                                  child: Text(
+                                    '최근 배송에서 선택',
+                                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 10),
                                   ),
-                                  Container(
-                                    alignment: Alignment.centerLeft,
-                                    padding: EdgeInsets.only(bottom: 20.0),
-                                    child: Text('최근 배송 건이 없습니다.',
-                                        style: TextStyle(
-                                            color: Colors.grey,
-                                            fontWeight: FontWeight.bold,
-                                            fontSize: 10)),
-                                  ),
+                                ),
+                                Container(
+                                  alignment: Alignment.centerLeft,
+                                  padding: EdgeInsets.only(bottom: 20.0),
+                                  child: Text('최근 배송 건이 없습니다.',
+                                      style: TextStyle(
+                                          color: Colors.grey,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 10)),
+                                ),
 
-                                  Container(
-                                    width: 300,
-                                    height: 45,
-                                    child: ElevatedButton(
-                                      onPressed: _visible.isButtonEnabled ? _trySubmitForm : null,
-                                      style: ButtonStyle(
-                                        backgroundColor: MaterialStateProperty.resolveWith<Color>(
-                                              (Set<MaterialState> states) => _visible.isButtonEnabled ? Color.fromARGB(255, 32, 43, 55) : Colors.grey,
-                                        ),
+                                Container(
+                                  width: 300,
+                                  height: 45,
+                                  child: ElevatedButton(
+                                    onPressed: _visible.isButtonEnabled ? _trySubmitForm : null,
+                                    style: ButtonStyle(
+                                      backgroundColor: MaterialStateProperty.resolveWith<Color>(
+                                            (Set<MaterialState> states) => _visible.isButtonEnabled ? Color.fromARGB(255, 32, 43, 55) : Colors.grey,
                                       ),
-                                      child: Text('출발지 설정',style: TextStyle(color: Colors.white),),
                                     ),
+                                    child: Text('출발지 설정',style: TextStyle(color: Colors.white),),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
-                          ],
                         ),
-                      ),
-                    );
-                  }
-              );
-            }
+                      ],
+                    ),
+                  ),
+                );
+              }
+            );
+          }
         );
       },
     );
@@ -937,28 +905,3 @@ class VisibleModel with ChangeNotifier {
     notifyListeners();
   }
 }
-
-class MyClipper extends CustomClipper<Path> {
-  @override
-  Path getClip(Size size) {
-    var path = Path();
-    path.moveTo(15, 15);
-    path.lineTo(30, 15);
-    path.lineTo(30, 5);
-    path.quadraticBezierTo(30, 2, 32, 2);
-    path.lineTo(48, 15);
-    path.lineTo(size.width - 15, 15);
-    path.quadraticBezierTo(size.width, 15, size.width, 30);
-    path.lineTo(size.width, size.height - 15);
-    path.quadraticBezierTo(size.width, size.height, size.width - 15, size.height);  //오른쪽하단
-    path.lineTo(15, size.height);
-    path.quadraticBezierTo(0, size.height, 0, size.height - 15);
-    path.lineTo(0, 30);
-    path.quadraticBezierTo(0, 15, 15, 15);
-    return path;
-  }
-
-  @override
-  bool shouldReclip(CustomClipper oldClipper) => true;
-}
-
