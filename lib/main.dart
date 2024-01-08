@@ -2,17 +2,11 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'code_lab_ex/FavoritesPage.dart';
-import 'code_lab_ex/GeneratorPage.dart';
 import 'drawer_left_menu/left_menu_drawer.dart';
+import 'mainPage/CameraPageEx.dart';
 import 'mainPage/CuMainPageEx.dart';
 import 'mainPage/DeliveryListPage.dart';
-import 'mainPage/DeliveryWorkerPage.dart';
-import 'mainPage/FourScreen.dart';
-import 'mainPage/Lgoin.dart';
-import 'mainPage/LocationSettingPage.dart';
 import 'mainPage/mainPage.dart';
-import 'mainPage/mainStamp.dart';
 
 void main() {
   runApp(MyApp());
@@ -88,33 +82,12 @@ class _MyHomePageState extends State<MyHomePage> {
         page = MainPage();
         break;
       case 1:
-        page = GeneratorPage();
-        break;
-      case 2:
-        page = FavoritesPage();
-        break;
-      case 3:
-        page = MainStamp();
-        break;
-      case 4:
-        page = FourScreen();
-        break;
-      case 5:
-        page = Lgoin();
-        break;
-      case 6:
-        page = DeliveryWorkerPage();
-        break;
-      case 7:
         page = DeliveryListPage();
         break;
-      case 8:
-        page = LocationSettingPage();
-        break;
-      case 9:
+      case 2:
         page = CuMainPageEx();
         break;
-      default:
+        default:
         throw UnimplementedError('no widget for $selectedIndex');
     }
 
@@ -128,162 +101,109 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 43, 65, 89),
-        iconTheme: IconThemeData(color: Colors.white),
-        title: Text(
-          'PILDSERVICE',
-          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
-        ),
-        centerTitle: true,
-        elevation: 0.0,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.notifications,
-              color: Colors.white,
-            ),
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color.fromARGB(255, 43, 65, 89),
+          iconTheme: IconThemeData(color: Colors.white),
+          title: Text(
+            'PILDSERVICE',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
           ),
+          centerTitle: true,
+          elevation: 0.0,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.notifications,
+                color: Colors.white,
+              ),
+            ),
 
-        ],
-      ),
-      drawer: MenuDrawer(),
-      body: LayoutBuilder(
-        builder: (context, constraints) {
-          if (constraints.maxWidth < 450) {
-            // Use a more mobile-friendly layout with BottomNavigationBar
-            // on narrow screens.
-            return Column(
-              children: [
-                Expanded(child: mainArea),
-                SafeArea(
-                  child: BottomNavigationBar(
-                    type: BottomNavigationBarType.fixed, // item이 4개 이상일 경우 추가
-                    items: [
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.home),
-                        label: 'main',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.home),
-                        label: 'Home',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'Favorites',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'mainstamp',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'NavigatorEx',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'Login',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: '배송워커앱 모달',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: '배송워커앱 운송장 list',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'Ex',
-                      ),
-                      BottomNavigationBarItem(
-                        icon: Icon(Icons.favorite),
-                        label: 'cu편의점택배',
-                      ),
-                    ],
-                    currentIndex: selectedIndex,
-                    onTap: (value) {
-                      setState(() {
-                        selectedIndex = value;
-                      });
-                    },
+          ],
+        ),
+        drawer: MenuDrawer(),
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+            if (constraints.maxWidth < 450) {
+              // Use a more mobile-friendly layout with BottomNavigationBar
+              // on narrow screens.
+              return Column(
+                children: [
+                  Expanded(child: mainArea),
+                  SafeArea(
+                    child: BottomNavigationBar(
+                      type: BottomNavigationBarType.fixed, // item이 4개 이상일 경우 추가
+                      items: [
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: '메인페이지',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.home),
+                          label: '배송워커앱 운송장 목록',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.favorite),
+                          label: 'CU편의점택배',
+                        ),
+
+                      ],
+                      currentIndex: selectedIndex,
+                      onTap: (value) {
+                        setState(() {
+                          selectedIndex = value;
+                        });
+                      },
+                    ),
+                  )
+                ],
+              );
+            } else {
+              return Row(
+                children: [
+                  SafeArea(
+                    child: NavigationRail(
+                      backgroundColor: Color(0xff101c5d),
+                      extended: constraints.maxWidth >= 600,
+                      destinations: [
+                        NavigationRailDestination(
+                          icon: Icon(Icons.home),
+                          label:
+                          Text('메인페이지', style: TextStyle(color: Colors.white)),
+                        ),
+                        NavigationRailDestination(
+                          icon: Icon(Icons.home),
+                          label:
+                          Text('배송워커앱 운송장 목록', style: TextStyle(color: Colors.white)),
+                        ),
+                        NavigationRailDestination(
+                          icon: Icon(Icons.favorite),
+                          label: Text('CU편의점택배',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                      ],
+                      selectedIndex: selectedIndex,
+                      onDestinationSelected: (value) {
+                        setState(() {
+                          selectedIndex = value;
+                        });
+                      },
+                    ),
                   ),
-                )
-              ],
-            );
-          } else {
-            return Row(
-              children: [
-                SafeArea(
-                  child: NavigationRail(
-                    backgroundColor: Color(0xff101c5d),
-                    extended: constraints.maxWidth >= 600,
-                    destinations: [
-                      NavigationRailDestination(
-                        icon: Icon(Icons.home),
-                        label:
-                        Text('main', style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.home),
-                        label:
-                        Text('Home', style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('Favorites',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('mainstamp',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('NavigatorEx',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('Login',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('배송워커앱 모당 연습',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('배송워커앱 운송장 list',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                      NavigationRailDestination(
-                        icon: Icon(Icons.favorite),
-                        label: Text('CU편의점택배',
-                            style: TextStyle(color: Colors.white)),
-                      ),
-                    ],
-                    selectedIndex: selectedIndex,
-                    onDestinationSelected: (value) {
-                      setState(() {
-                        selectedIndex = value;
-                      });
-                    },
-                  ),
-                ),
-                Expanded(child: mainArea),
-              ],
-            );
-          }
-        },
+                  Expanded(child: mainArea),
+                ],
+              );
+            }
+          },
+        ),
       ),
     );
   }
 }
+
+
 
 
 
