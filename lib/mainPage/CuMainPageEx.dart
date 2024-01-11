@@ -1,8 +1,9 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-
+import 'package:dio/dio.dart';
 import 'CameraPageEx.dart';
+import 'MapScreen.dart';
 
 class CuMainPageEx extends StatefulWidget {
   @override
@@ -23,6 +24,8 @@ class _CuMainPageExState extends State<CuMainPageEx> {
     "assets/image/slider2_img1.png",
     "assets/image/slider2_img2.png",
   ];
+
+  final dio = Dio();
 
   double mediaHeight(BuildContext context, double scale) => MediaQuery.of(context).size.height * scale; // 미디어 쿼리 높이를 잡아주는 함수
   double mediaWidth(BuildContext context, double scale) => MediaQuery.of(context).size.width * scale; // 미디어 쿼리 넓이를 잡아주는 함수
@@ -112,6 +115,48 @@ class _CuMainPageExState extends State<CuMainPageEx> {
                   ),
                 ),
                 Container(
+                  height: 80,
+                  width: mediaWidth(context, 1),
+                  padding: EdgeInsets.all(20.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 92, 225, 210),
+                      foregroundColor: Colors.white,
+                    ),
+                    icon: Icon(Icons.save),
+                    label: TextButton(
+                      onPressed: () async{
+                        final cameras = await availableCameras();
+                        final firstCamera = cameras.first;
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => MapScreen()));
+
+                      },
+                      child: Text('내 위치 확인 하기'),
+                    ),
+                  ),
+                ),
+                Container(
+                  height: 80,
+                  width: mediaWidth(context, 1),
+                  padding: EdgeInsets.all(20.0),
+                  child: ElevatedButton.icon(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromARGB(255, 92, 225, 210),
+                      foregroundColor: Colors.white,
+                    ),
+                    icon: Icon(Icons.save),
+                    label: TextButton(
+                      onPressed: () async{
+                      },
+                      child: Text('dio 적용 다트 홈페이지 홈'),
+                    ),
+                  ),
+                ),
+                Container(
                   // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
                   width: mediaWidth(context, 1),
                   child: Column(
@@ -163,7 +208,7 @@ class _CuMainPageExState extends State<CuMainPageEx> {
                         ),
                       ),
                       Container(
-                          // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
+                        // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -220,16 +265,16 @@ class _CuMainPageExState extends State<CuMainPageEx> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                  Container(
-                                    padding: EdgeInsets.only(top: 8.0),
-                                    height: 29,
-                                    width: 100,
-                                    // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-                                    child: Card(
-                                      color: Color.fromARGB(255, 128, 31, 166),
-                                      child: Text('CU택배상품권 5%할인',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 8,),textAlign: TextAlign.center,),
+                                    Container(
+                                      padding: EdgeInsets.only(top: 8.0),
+                                      height: 29,
+                                      width: 100,
+                                      // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
+                                      child: Card(
+                                        color: Color.fromARGB(255, 128, 31, 166),
+                                        child: Text('CU택배상품권 5%할인',style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 8,),textAlign: TextAlign.center,),
+                                      ),
                                     ),
-                                  ),
                                     Container(
                                       width: 100,
                                       height: 29,
@@ -241,8 +286,8 @@ class _CuMainPageExState extends State<CuMainPageEx> {
                                       height: 29,
                                       // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
                                       child: TextButton(
-                                          onPressed: (){},
-                                          child: Text('쿠폰몰 바로가기',style: TextStyle(color: Colors.grey,fontSize: 8.0,fontWeight: FontWeight.bold),),
+                                        onPressed: (){},
+                                        child: Text('쿠폰몰 바로가기',style: TextStyle(color: Colors.grey,fontSize: 8.0,fontWeight: FontWeight.bold),),
 
                                       ),
                                     ),
@@ -371,11 +416,11 @@ class _CuMainPageExState extends State<CuMainPageEx> {
             builder: (context) {
               return Container(
                 // decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 1)),
-                width: 350,
-                height: 200,
-                child: Card(
-                  child: Image(fit: BoxFit.fill, image: AssetImage(imgList,),),
-                )
+                  width: 350,
+                  height: 200,
+                  child: Card(
+                    child: Image(fit: BoxFit.fill, image: AssetImage(imgList,),),
+                  )
               );
             },
           );
@@ -423,4 +468,6 @@ class _CuMainPageExState extends State<CuMainPageEx> {
       ),
     );
   }
+
+
 }

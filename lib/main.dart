@@ -1,22 +1,33 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import 'drawer_left_menu/left_menu_drawer.dart';
-import 'mainPage/CameraPageEx.dart';
+import 'mainPage/ApiTestPage.dart';
 import 'mainPage/CuMainPageEx.dart';
 import 'mainPage/DeliveryListPage.dart';
+import 'mainPage/DioApiTestPage.dart';
 import 'mainPage/mainPage.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
-void main() {
+void main() async{
+  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  WidgetsFlutterBinding.ensureInitialized();
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
   runApp(MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   @override
   Widget build(BuildContext context) {
+    FlutterNativeSplash.remove();
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
@@ -35,6 +46,7 @@ class MyApp extends StatelessWidget {
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
   var history = <WordPair>[];
+
 
   GlobalKey? historyListKey;
 
@@ -86,6 +98,12 @@ class _MyHomePageState extends State<MyHomePage> {
         break;
       case 2:
         page = CuMainPageEx();
+        break;
+      case 3:
+        page = ApiTestPage();
+        break;
+      case 4:
+        page = DioApiTestPage();
         break;
         default:
         throw UnimplementedError('no widget for $selectedIndex');
@@ -148,6 +166,14 @@ class _MyHomePageState extends State<MyHomePage> {
                           icon: Icon(Icons.favorite),
                           label: 'CU편의점택배',
                         ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.favorite),
+                          label: 'AIP 호출 연습',
+                        ),
+                        BottomNavigationBarItem(
+                          icon: Icon(Icons.favorite),
+                          label: 'Dio AIP 호출 연습',
+                        ),
 
                       ],
                       currentIndex: selectedIndex,
@@ -181,6 +207,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         NavigationRailDestination(
                           icon: Icon(Icons.favorite),
                           label: Text('CU편의점택배',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                        NavigationRailDestination(
+                          icon: Icon(Icons.favorite),
+                          label: Text('API 호출 연습',
+                              style: TextStyle(color: Colors.white)),
+                        ),
+                        NavigationRailDestination(
+                          icon: Icon(Icons.favorite),
+                          label: Text('Dio API 호출 연습',
                               style: TextStyle(color: Colors.white)),
                         ),
                       ],
